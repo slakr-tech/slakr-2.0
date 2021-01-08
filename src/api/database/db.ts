@@ -1,5 +1,17 @@
-const mongojs = require('mongojs');
+const faunadb = require('faunadb'),
+  q = faunadb.query
 
-const db = mongojs(process.env['chatreMongoConnectionUri'])
+const client = new faunadb.Client({ secret: process.env['slakrFaunaSecret'] })
 
-export const users = db.collection('users')
+let createP = client.query(
+    q.Create(q.Collection('users'), { data: { testField: 'testValue' } })
+)
+
+createP.then(function(response: any) {
+    console.log(response)
+    console.log(response.ref) // Would log the ref to console.
+})
+
+createP.catch((err: any) => {
+    console.log(err)
+})

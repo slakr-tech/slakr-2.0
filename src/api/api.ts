@@ -1,12 +1,9 @@
 import express from 'express';
-import { users } from './database/db'
+import './database/db'
 
-console.log(users)
+console.log('hello')
 
 export const api = express();
-users.find().sort({name: 1}, function (err:any, docs:any) {
-    console.log(docs)
-})
 
 api.get('/', (req, res) => {
     res.json({
