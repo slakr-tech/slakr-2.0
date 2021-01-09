@@ -7,7 +7,8 @@
     "start": "npm run build && npm run server",
     "test": "npm run build && nodemon dist/main.js",
     "server": "node dist/app.js",
-    "build": "tsc"
+    "build": "tsc",
+    "reset": "rmdir dist /S /Q && rm -rf dist"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "typescript": "^4.1.3"
   },
   "dependencies": {
+    "colors": "^1.4.0",
     "dotenv": "^8.2.0",
     "faunadb": "^4.0.0",
     "morgan": "^1.10.0"

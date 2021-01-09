@@ -3,13 +3,19 @@ import express from 'express';
 const app = express();
 const PORT = process.env.PORT || 3000
 
-// middleware imports
+// colors import
+const colors = require('colors/safe');
+
+// MIDDLEWARE IMPORTS
+const morgan = require('morgan');
 import { index } from './main/main'
 import { api } from './api/api'
 
-// middleware use
+// MIDDLEWARE USE
+app.use(morgan(`${colors.red(':method')} ${colors.blue(':url')} :status :res[content-length] - :response-time ms`));
 app.use('/', index);
 app.use('/api', api);
+
 
 app.listen(PORT, () => {
     console.log(`SERVER IS LISTENING ON PORT ${ PORT }`)
