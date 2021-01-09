@@ -4,7 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 3000
 
 // middleware imports
-import { index } from './index/index'
+import { index } from './main/main'
 import { api } from './api/api'
 
 // middleware use

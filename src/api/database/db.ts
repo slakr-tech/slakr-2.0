@@ -3,15 +3,17 @@ const faunadb = require('faunadb'),
 
 const client = new faunadb.Client({ secret: process.env['slakrFaunaSecret'] })
 
-let createP = client.query(
-    q.Create(q.Collection('users'), { data: { testField: 'testValue' } })
-)
+function insert(doc: object){
 
-createP.then(function(response: any) {
-    console.log(response)
-    console.log(response.ref) // Would log the ref to console.
-})
-
-createP.catch((err: any) => {
-    console.log(err)
-})
+    let createP = client.query(
+        q.Create(q.Collection('users'), { data: { doc } })
+    )
+    createP.then(function(response: any) {
+        console.log(response)
+        console.log(response.ref) // Would log the ref to console.
+    })
+    
+    createP.catch((err: any) => {
+        console.log(err)
+    })
+}

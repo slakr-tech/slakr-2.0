@@ -2,11 +2,11 @@
   "name": "slakr-2.0",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "./dist/app.js",
   "scripts": {
-    "start": "npm run build && node dist/main.js",
+    "start": "npm run build && npm run server",
     "test": "npm run build && nodemon dist/main.js",
-    "server": "node dist/main.js",
+    "server": "node dist/app.js",
     "build": "tsc"
   },
   "repository": {
