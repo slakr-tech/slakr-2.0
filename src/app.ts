@@ -16,6 +16,9 @@ app.use(morgan(`${colors.red(':method')} ${colors.blue(':url')} :status :res[con
 app.use('/', main);
 app.use('/api', api);
 
+// STATIC
+app.use('/static', express.static('static'))
+
 
 app.listen(PORT, () => {
     console.log(`SERVER IS LISTENING ON PORT ${ PORT }`)
