@@ -1,19 +1,21 @@
-const faunadb = require('faunadb'),
-  q = faunadb.query
+import { User } from './user';
+const admin = require('firebase-admin');
 
-const client = new faunadb.Client({ secret: process.env['slakrFaunaSecret'] })
+import serviceAccount from './serviceAccountKeys.json';
 
-function insert(doc: object){
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
 
-    let createP = client.query(
-        q.Create(q.Collection('users'), { data: { doc } })
-    )
-    createP.then(function(response: any) {
-        console.log(response)
-        console.log(response.ref) // Would log the ref to console.
-    })
-    
-    createP.catch((err: any) => {
-        console.log(err)
-    })
+const db: any = admin.firestore();
+
+const users = db.collection('users');
+
+export function signin(user:User){
+    users.doc(user.id).set({
+        id:    user.id,
+        name:  user.name,
+        email: user.email,
+        photo: user.email
+    });  
 }

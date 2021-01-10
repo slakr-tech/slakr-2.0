@@ -1,5 +1,6 @@
-interface User {
-    _id: object,
+export interface User {
+    id: string,
     name: string,
-    email: string
+    email: string,
+    photo: string
 }
