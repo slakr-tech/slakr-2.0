@@ -1,7 +1,13 @@
 import express from 'express';
+import nunjucks from 'nunjucks';
 
-export const index = express();
+export const main = express();
 
-index.get('/', (req, res) => {
-    res.send('hello world')
+nunjucks.configure('views', {
+    autoescape:  true,
+    express:  main
+})
+
+main.get('/', (req, res) => {
+    res.send(nunjucks.render('index.html'))
 })

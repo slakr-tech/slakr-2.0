@@ -8,12 +8,12 @@ const colors = require('colors/safe');
 
 // MIDDLEWARE IMPORTS
 const morgan = require('morgan');
-import { index } from './main/main'
+import { main } from './main/main'
 import { api } from './api/api'
 
 // MIDDLEWARE USE
 app.use(morgan(`${colors.red(':method')} ${colors.blue(':url')} :status :res[content-length] - :response-time ms`));
-app.use('/', index);
+app.use('/', main);
 app.use('/api', api);
 
 
