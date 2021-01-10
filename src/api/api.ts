@@ -1,8 +1,6 @@
 import express from 'express';
 import { signin } from './database/db'
-var bodyParser = require('body-parser')
-
-console.log('hello')
+const bodyParser = require('body-parser')
 
 export const api = express();
 api.use(bodyParser.urlencoded({ extended: false }))
@@ -14,9 +12,8 @@ api.get('/', (req, res) => {
 })
 
 api.post('/signin', (req, res) => {
-    console.log(req.body)
     signin(req.body)
     res.json({
-        "signin":"You just queried signup"
+        "signin":"You just queried signin"
     })
 })

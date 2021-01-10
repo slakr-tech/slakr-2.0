@@ -24,7 +24,6 @@ signOutBtn.onclick = () => auth.signOut();
 
 auth.onAuthStateChanged(user => {
     if (user) {
-        // console.log(user)
         // signed in
         signIn(user.uid, user.displayName, user.email, user.photoURL)
         whenSignedIn.hidden = false;
