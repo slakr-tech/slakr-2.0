@@ -9,5 +9,5 @@ nunjucks.configure('views', {
 })
 
 main.get('/', (req, res) => {
-    res.send(nunjucks.render('index.html'))
+    res.send(nunjucks.render('index.njk'))
 })
