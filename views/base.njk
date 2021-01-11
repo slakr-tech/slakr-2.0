@@ -8,13 +8,14 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
     <link rel="stylesheet" href="/static/load/loader.css">
+    <link rel="stylesheet" href="/static/auth/css/googleSignIn.css">
 </head>
 <body>
     {% block header %}{% endblock %}
     <div class="loader" id="loader"></div>
     <section id="whenSignedOut">
-
-        <button id="signInBtn">Sign in with Google</button>
+        
+        <img src="/static/auth/images/google/blue.png" alt="Sign In With Google" id="signInBtn">
     
     </section>
     
@@ -35,7 +36,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw==" crossorigin="anonymous"></script>
     <script defer src="/static/auth/firebaseconfig.js"></script>
     <script defer src="/static/auth/signin.js"></script>
-    
+
+    <!--FINAL TAG-->
     <script defer src='/static/load/finished_loading.js'></script>
 </body>
 </html>
